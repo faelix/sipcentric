@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 
+# Mercurial
+.hg/
+
 # C extensions
 *.so
 
@@ -58,3 +61,8 @@ target/
 
 # Nimvelo
 example.py
+
+# local virtualenv
+Pipfile
+Pipfile.lock
+.venv/

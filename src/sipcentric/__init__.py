@@ -1,9 +1,10 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# nimvelo/__init__.py
-# Python 2.7 client library for the Nimvelo/Sipcentric API
+# sipcentric/__init__.py
+# Modern Python client library for the Sipcentric (Simwood Partner, formerly Nimvelo) API
 # Copyright (c) 2015 Sipcentric Ltd. Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+# Copyright (c) 2022 Faelix Limited. Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 
 import sys
 import math
@@ -13,12 +14,12 @@ import logging
 
 import simplejson as json
 
-from stream import Stream
+from .stream import Stream
 
 logger = logging.getLogger(__name__)
 
 
-class Nimvelo(object):
+class Sipcentric(object):
 
   def __init__(self, username, password, base='https://pbx.sipcentric.com/api/v1', customer='me'):
 

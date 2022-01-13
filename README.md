@@ -1,11 +1,13 @@
-# Nimvelo Python Client
+# Simwood Partner Python Client
 
-Python 2.7 client library for the Nimvelo/Sipcentric API
+A modern Python client library for Sipcentric
+([Simwood Partner](https://simwood.com/uk/partner/), formerly Nimvelo)
+[API](https://developer.simwood.com/docs/direct/introduction/).
 
 ```python
-from nimvelo import Nimvelo
-nimvelo = Nimvelo(username="myusername", password="mypassword")
-print nimvelo.sms.post(_from="0123", to="03301201200", body="Hello World!")
+from sipcentric import Sipcentric
+api = Sipcentric(username="myusername", password="mypassword")
+print api.sms.post(_from="0123", to="03301201200", body="Hello World!")
 ```
 
 ## Install
@@ -13,15 +15,15 @@ print nimvelo.sms.post(_from="0123", to="03301201200", body="Hello World!")
 ### Best method
 
 ```
-sudo pip install nimvelo
+sudo pip install sipcentric
 ```
 
-*You may need to install `simplejson` and `multiprocessing` if you don't have them already.*
+*You may need to install `simplejson` if you don't have it already.*
 
 ### Manual method
 
 ```
-git clone git@github.com:Nimvelo/python-client.git && cd python-client
+git clone git@github.com:faelix/sipcentric.git && cd sipcentric
 sudo python setup.py install
 ```
 
@@ -32,20 +34,20 @@ sudo python setup.py install
 **Get account details**
 
 ```python
-from nimvelo import Nimvelo
+from sipcentric import Sipcentric
 
-nimvelo = Nimvelo(username="myusername", password="mypassword")
+api = Sipcentric(username="myusername", password="mypassword")
 
-print nimvelo.account.get()
+print api.account.get()
 ```
 
 **Connect to the streaming api**
 
 ```python
-from nimvelo import Nimvelo
+from sipcentric import Sipcentric
 
-nimvelo = Nimvelo(username="myusername", password="mypassword")
-stream = nimvelo.Stream
+api = Sipcentric(username="myusername", password="mypassword")
+stream = api.Stream
 
 def callHandler(call):
   print 'Incoming call from ' + call['callerIdName'] + ' (' + call['callerIdNumber'] + ')'
@@ -61,7 +63,7 @@ stream.connect()
 
 ## Reference
 
-- nimvelo.Nimvelo(username, password, base='https://pbx.sipcentric.com/api/v1', customer='me')
+- sipcentric.Sipcentric(username, password, base='https://pbx.sipcentric.com/api/v1', customer='me')
   - account
     - get()
   - callBundles
@@ -91,3 +93,9 @@ stream.connect()
     - register(type, callback)
     - connect()
     - disconnect()
+
+## History
+
+This project was forked from Nimvelo's original project (for Python 2.7)
+[python-client](https://github.com/Nimvelo/python-client).  The name was
+changed to `sipcentric` after discussion with the development team at Simwood.
