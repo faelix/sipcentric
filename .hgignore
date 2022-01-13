@@ -22,7 +22,7 @@
 ^parts/
 ^sdist/
 ^var/
-^\.egg-info/
+^src/.*\.egg-info/
 ^\.installed.cfg$
 \.egg$
 
@@ -66,3 +66,7 @@
 ^Pipfile$
 ^Pipfile\.lock$
 ^\.venv/
+
+# sublimetext
+\.sublime-project$
+\.sublime-workspace$
